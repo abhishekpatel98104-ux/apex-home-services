@@ -1,0 +1,321 @@
+/* ==========================================================================
+   ApexPro Home Services - Responsive Stylesheet & Mobile Navigation
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Mobile Sticky Bottom Quick Action Bar
+   -------------------------------------------------------------------------- */
+.mobile-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 998;
+  padding: 8px 12px;
+}
+
+.mobile-bottom-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.mobile-nav-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 4px;
+  border-radius: var(--radius-md);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.mobile-nav-action svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-nav-action.action-call {
+  background-color: var(--color-emergency-orange-light);
+  color: var(--color-emergency-orange);
+}
+
+.mobile-nav-action.action-wa {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.mobile-nav-action.action-book {
+  background-color: var(--color-accent-blue);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(30, 96, 255, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Drawer Navigation Menu
+   -------------------------------------------------------------------------- */
+.mobile-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(11, 21, 40, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.mobile-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 1002;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: right var(--transition-base);
+  overflow-y: auto;
+}
+
+.mobile-drawer.active {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 24px;
+}
+
+.drawer-close-btn {
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.drawer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.drawer-nav-link {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-emergency-box {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-visual {
+    order: -1;
+  }
+  
+  .hero-main-img {
+    height: 380px;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ba-showcase-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-summary-sidebar {
+    position: static;
+  }
+  
+  .reviews-summary-bar {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  
+  .rating-score-block {
+    align-items: center;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+  
+  body {
+    padding-bottom: 74px; /* Space for mobile sticky bottom bar */
+  }
+  
+  .topbar {
+    display: none; /* Hide topbar on small screens to save vertical space */
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .header-phone-btn {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .mobile-bottom-bar {
+    display: block;
+  }
+  
+  .floating-actions-container {
+    bottom: 84px; /* Move above bottom bar */
+    right: 18px;
+  }
+  
+  .whatsapp-chat-popup {
+    bottom: 148px;
+    right: 16px;
+    width: calc(100vw - 32px);
+  }
+  
+  .hero {
+    padding: 36px 0 60px 0;
+  }
+  
+  .hero-main-img {
+    height: 300px;
+  }
+  
+  .floating-badge {
+    display: none; /* Hide complex floating badges on small mobile screens */
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .why-us-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-tiles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .urgency-selector {
+    grid-template-columns: 1fr;
+  }
+  
+  .promise-banner {
+    flex-direction: column;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  
+  .promise-cta {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .promise-cta .btn {
+    width: 100%;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .widget-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .widget-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .areas-lookup-form {
+    flex-direction: column;
+  }
+}
